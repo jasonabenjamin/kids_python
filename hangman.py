@@ -5,8 +5,10 @@ words = ["cat", "dog", "sun", "moon", "tree", "fish", "star", "ball", "book", "d
 
 # Pick a random word
 word = random.choice(words)
-word_letters = set(word)  # Unique letters in the word
-guessed_letters = set()   # Letters the player has guessed
+
+# Store the word letters as a list
+word_letters = list(word)  # ['c','a','t']
+guessed_letters = []       # List to track letters guessed by the player
 
 # Number of tries
 tries = 6
@@ -15,11 +17,22 @@ print("Welcome to Hangman!")
 print("The word has " + str(len(word)) + " letters.")
 
 # Game loop
-while tries > 0 and word_letters != guessed_letters:
+while tries > 0:
     # Show the word with guessed letters and underscores
-    display_word = [letter if letter in guessed_letters else "_" for letter in word]
+    display_word = []
+    for letter in word_letters:
+        if letter in guessed_letters:
+            display_word.append(letter)
+        else:
+            display_word.append("_")
     print("Word: " + " ".join(display_word))
     
+    # Check if the word is fully guessed
+    if "_" not in display_word:
+        print("Congratulations! You guessed the word: " + word)
+        break
+
+    # Get the player's guess
     guess = input("Guess a letter: ").lower()
     
     if len(guess) != 1 or not guess.isalpha():
@@ -30,15 +43,14 @@ while tries > 0 and word_letters != guessed_letters:
         print("You already guessed that letter!")
         continue
     
+    guessed_letters.append(guess)
+    
     if guess in word_letters:
-        guessed_letters.add(guess)
         print("Good guess!")
     else:
         tries -= 1
         print("Oops! Wrong guess. Tries left: " + str(tries))
 
-# End of game
-if word_letters == guessed_letters:
-    print("Congratulations! You guessed the word: " + word)
-else:
+# If the player ran out of tries
+if tries == 0:
     print("Game over! The word was: " + word)
