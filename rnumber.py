@@ -6,11 +6,11 @@ number_to_guess = random.randint(1, 10)
 print("Welcome to the Number Guessing Game!")
 print("I have picked a number between 1 and 10. Try to guess it!")
 
-# Loop until the user guesses correctly
+# Keep playing until right guess
 while True:
     guess = input("Enter your guess: ")
     
-    # Make sure the input is a number
+    # Has to be a number
     if not guess.isdigit():
         print("Please enter a valid number.")
         continue

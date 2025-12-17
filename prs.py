@@ -7,7 +7,7 @@ print("Welcome to Rock-Paper-Scissors!")
 print("Type 'quit' to exit the game.")
 
 while True:
-    # Get the user's choice
+    # What you pick
     user_choice = input("Choose rock, paper, or scissors: ").lower()
     
     if user_choice == "quit":
@@ -18,12 +18,12 @@ while True:
         print("Invalid choice. Please try again.")
         continue
     
-    # Computer randomly picks a choice
+    # What the computer picks
     computer_choice = random.choice(choices)
     
     print(f"Computer chose: {computer_choice}")
     
-    # Determine the winner
+    # Find the winner
     if user_choice == computer_choice:
         print("It's a tie!")
     elif (
@@ -35,4 +35,4 @@ while True:
     else:
         print("Computer wins!")
     
-    print()  # Blank line for readability
+    print()  # Just blank line

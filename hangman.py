@@ -1,12 +1,12 @@
 import random
 
-# Kid-friendly word list
+# Here is the list of words to pick from
 words = ["cat", "dog", "sun", "moon", "tree", "fish", "star", "ball", "book", "duck"]
 
 # Pick a random word
 word = random.choice(words)
 
-# Store the word letters as a list
+# Word letters as a list
 word_letters = list(word)  # ['c','a','t']
 guessed_letters = []       # List to track letters guessed by the player
 
@@ -18,7 +18,7 @@ print("The word has " + str(len(word)) + " letters.")
 
 # Game loop
 while tries > 0:
-    # Show the word with guessed letters and underscores
+    # Show the word with guessed letters and blanks
     display_word = []
     for letter in word_letters:
         if letter in guessed_letters:
@@ -27,7 +27,7 @@ while tries > 0:
             display_word.append("_")
     print("Word: " + " ".join(display_word))
     
-    # Check if the word is fully guessed
+    # Check if all the word is guessed
     if "_" not in display_word:
         print("Congratulations! You guessed the word: " + word)
         break

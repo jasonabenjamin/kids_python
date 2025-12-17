@@ -1,6 +1,6 @@
 import random
 
-# List of words to choose from
+# All the words for game - you can add your own
 words = ["apple", "banana", "cherry", "orange", "grape"]
 
 # Pick a random word
@@ -16,7 +16,7 @@ print("Welcome to the Word Scramble Game!")
 print("Try to guess the word from these scrambled letters:")
 print(scrambled_word)
 
-# Loop until the user guesses correctly
+# Keep going until right guess
 while True:
     guess = input("Your guess: ")
     if guess.lower() == word.lower():
