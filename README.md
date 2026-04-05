@@ -5,4 +5,5 @@ Make sure you install PYTHON 3 on your computer before trying these.  The editor
 Here is the install link and directions: 
 
 INSTALL: https://www.python.org/downloads/
+
 IDLE: https://realpython.com/python-idle/
